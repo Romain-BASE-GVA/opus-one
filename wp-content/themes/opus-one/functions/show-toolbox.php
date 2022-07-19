@@ -13,6 +13,13 @@ function get_first_show_category($term_id){
     return $rows[0];
 }
 
+function get_last_show_by_term($term_id)
+{
+    global $wpdb;
+    $rows = $wpdb->get_results("SELECT DISTINCT ID, meta_value FROM opus_posts P, opus_postmeta M, opus_term_relationships T WHERE (P.ID = M.post_id AND P.post_status = 'publish' AND M.meta_key LIKE '%_date_de_la_representation' AND M.meta_value >= '".date('Ymd')."' AND M.meta_value NOT LIKE 'field%' AND T.term_taxonomy_id = ".$term_id." AND T.object_id = P.ID) OR (P.ID = M.post_id AND P.post_status = 'publish' AND M.meta_key LIKE '%_date_de_report' AND M.meta_value >= '".date('Ymd')."' AND M.meta_value NOT LIKE 'field%' AND T.term_taxonomy_id = ".$term_id." AND T.object_id = P.ID) ORDER BY meta_value DESC LIMIT 1", ARRAY_A);
+    return $rows[0]['meta_value'];
+}
+
 function get_next_show_two_months($year_to_show, $month_to_show){
     global $wpdb;
     $next_month =  date( "Ym", strtotime($year_to_show."-".$month_to_show." +1 month"));
@@ -24,6 +31,13 @@ function get_next_shows_search($year_to_show, $month_to_show){
     global $wpdb;
     $next_month =  date( "Ym", strtotime($year_to_show."-".$month_to_show));
     $rows = $wpdb->get_results("SELECT DISTINCT ID, meta_value FROM opus_posts P, opus_postmeta M WHERE (P.ID = M.post_id AND P.post_status = 'publish' AND M.meta_key LIKE '%_date_de_la_representation' AND (M.meta_value LIKE '".$year_to_show.$month_to_show."%' OR M.meta_value LIKE '".$next_month."%') AND M.meta_value >= '".date('Ymd')."') OR (P.ID = M.post_id AND P.post_status = 'publish' AND M.meta_key LIKE '%_date_de_report' AND (M.meta_value LIKE '".$year_to_show.$month_to_show."%' OR M.meta_value LIKE '".$next_month."%') AND M.meta_value >= '".date('Ymd')."') ORDER BY meta_value ASC", ARRAY_A);
+    return $rows;
+}
+
+function get_next_show_two_months_by_terms($year_to_show, $month_to_show, $term_id){
+    global $wpdb;
+    $next_month =  date( "Ym", strtotime($year_to_show."-".$month_to_show." +1 month"));
+    $rows = $wpdb->get_results("SELECT DISTINCT ID, meta_value FROM opus_posts P, opus_postmeta M, opus_term_relationships T WHERE (P.ID = M.post_id AND P.post_status = 'publish' AND M.meta_key LIKE '%_date_de_la_representation' AND (M.meta_value LIKE '".$year_to_show.$month_to_show."%' OR M.meta_value LIKE '".$next_month."%') AND M.meta_value >= '".date('Ymd')."' AND T.term_taxonomy_id = ".$term_id." AND T.object_id = P.ID) OR (P.ID = M.post_id AND P.post_status = 'publish' AND M.meta_key LIKE '%_date_de_report' AND T.term_taxonomy_id = ".$term_id." AND T.object_id = P.ID AND (M.meta_value LIKE '".$year_to_show.$month_to_show."%' OR M.meta_value LIKE '".$next_month."%') AND M.meta_value >= '".date('Ymd')."') ORDER BY meta_value ASC", ARRAY_A);
     return $rows;
 }
 
@@ -156,6 +170,7 @@ function get_next_shows_terms($nb, $post)
 
 function get_show_from_category_nb_types($term_id, $nb){
     global $wpdb;
+
     $rows = $wpdb->get_results("SELECT DISTINCT P.ID, M.meta_value FROM opus_posts P, opus_postmeta M, opus_term_relationships T WHERE (P.ID = M.post_id AND P.post_status = 'publish' AND M.meta_key LIKE '%_date_de_la_representation' AND M.meta_value >= '".date('Ymd')."' AND M.meta_value NOT LIKE 'field%' AND T.term_taxonomy_id = ".$term_id." AND T.object_id = P.ID) OR (P.ID = M.post_id AND P.post_status = 'publish' AND M.meta_key LIKE '%_date_de_report' AND M.meta_value >= '".date('Ymd')."' AND M.meta_value NOT LIKE 'field%' AND T.term_taxonomy_id = ".$term_id." AND T.object_id = P.ID) ORDER BY meta_value ASC", ARRAY_A);
 
     $my_shows = array();
@@ -291,10 +306,6 @@ function stripAccents($str) {
 
 function get_ticket_link($date, $debug = false)
 {
-    if($debug){
-        opus_die(var_dump($date));
-    }
-
     $ticket = null;
     if(isset($date['fnac_ch']) && !empty($date['fnac_ch'])){
         $ticket = $date['fnac_ch'];
@@ -348,6 +359,8 @@ function get_last_show()
     $rows = $wpdb->get_results("SELECT DISTINCT ID, meta_value FROM opus_posts P, opus_postmeta M WHERE (P.ID = M.post_id AND P.post_status = 'publish' AND M.meta_key LIKE '%_date_de_la_representation' AND M.meta_value >= '".date('Ymd')."' AND M.meta_value NOT LIKE 'field%') OR (P.ID = M.post_id AND P.post_status = 'publish' AND M.meta_key LIKE '%_date_de_report' AND M.meta_value >= '".date('Ymd')."' AND M.meta_value NOT LIKE 'field%') ORDER BY meta_value DESC LIMIT 1", ARRAY_A);
     return $rows[0]['meta_value'];
 }
+
+
 
 function similar_in_array($sNeedle, $aHaystack )
 {

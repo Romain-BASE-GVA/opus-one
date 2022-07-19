@@ -23,10 +23,10 @@
 define( 'DB_NAME', 'wp_opusone_db' );
 
 /** MySQL database username */
-define( 'DB_USER', 'wp_opusone_user' );
+define( 'DB_USER', 'root' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'wp_opusone_pw' );
+define( 'DB_PASSWORD', 'root' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
@@ -46,15 +46,15 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',          '+G`+ZUeR}K3oT_|!)GJ4?u*~^nKlR5K Dr+<NPZ~v`AM5f16>.,xY]kp3BxpPkuz' );
-define( 'SECURE_AUTH_KEY',   '.5#ERxhl<x4U?]B Ja2TAWnj:l1Veg3vHi k!}&O&nuW`6jYWsJVVN:4:XPH2?z@' );
-define( 'LOGGED_IN_KEY',     'H0)ny%m(ab.|<D6CUCdx`%JkW3ZB=,Y-C.3F*~9TdTp-i|]p1J4|im&.ut_/:DWK' );
-define( 'NONCE_KEY',         'iF6eL>I2E|tj)1fAp%x~B!#Ddn3jttSED8+{_GDah ->B[4+89RV8z #:9p)x/Jo' );
-define( 'AUTH_SALT',         '9pS`bwf#/JiWU3;xnb~i7Zf8Tc6Cp3UU[ye%ca)*8CY)0|q8{nRhFaNLZpzYlKQY' );
-define( 'SECURE_AUTH_SALT',  '@cT4WA1$K((/oHUA-$Op:R2IR08-y*i$/adJn#x,}UYsOLg#ZepIS?L)~~r[Pa@s' );
-define( 'LOGGED_IN_SALT',    'A_&^v> 2^NF.k+Y~~TQOo&0j1|1C@mz@O=vu2-c]/q A:h{x|Tm5lpQ_D#;l:4?h' );
-define( 'NONCE_SALT',        'wr!:#x`FqJY#J=c&u##05LFYo+~z; v&sV.yBaT8xn.*D.dQQWb/R4enpKGxx*oW' );
-define( 'WP_CACHE_KEY_SALT', 'VPT97&2jkj,H6ah.c{KTs7BSxm{g>ZDvWt9s&>ueB4D%&tlF^s|2H=g%RwSX*Z#J' );
+define( 'AUTH_KEY',          'C$@B>MwhZ4/s@ILLT+6]CM Vaozz|6EEi9nqGXbb!?p?tCoII_h9~Y+4GuoM/n4`' );
+define( 'SECURE_AUTH_KEY',   'b1vPkM3Ts<%xze{`0G}*f&8<%$gMD6$P@&j$>w`d<X]gVUrxmVcc~z+;6bj]q+||' );
+define( 'LOGGED_IN_KEY',     'pk=q~7lM,FfK^I^mMH#|dz7(K|KlNE;Bk9HUCP(~g@R;z] C0zSFS)=~aiOB(N5E' );
+define( 'NONCE_KEY',         'm]ZreBoX2tuX{n3u 4(jJX:TO8Ntb<5_?:P]h|c:kGK#Sr~{0kndgk|j=x/]B,%:' );
+define( 'AUTH_SALT',         '_p>QuaS[$WKc9Vz9a-zU}D({{d9[zD(@uL1gcM31H!MF{SWq0hHe=t9NT{GR9tL3' );
+define( 'SECURE_AUTH_SALT',  '.*-dFwD2szPq0<9V~6*QI;l+b_ L~Mc@TLTRi]pn}Ux^-,n+S*ldm6F|p|=Fh(i!' );
+define( 'LOGGED_IN_SALT',    '.hh-<| O1Ga:WvqYpaxSE3t8I38ixb<Z2Lk#BM[aH$?.q7ScgEp:1mH+^|wR|pgL' );
+define( 'NONCE_SALT',        'g0tDkxyNOzHye[zQu&@:9EH%N:HevHPv]oA<i3;qA^<6i?s3X8)<*Tr;o9APs^w[' );
+define( 'WP_CACHE_KEY_SALT', 'cp=eG.Uc2/,{X$?%q@CH?bB>68g/ZTE-a;wJS7+fYzbz%^J6<N|G8ZOMcw6 Zh-A' );
 
 /**
  * WordPress Database Table prefix.
@@ -65,7 +65,7 @@ define( 'WP_CACHE_KEY_SALT', 'VPT97&2jkj,H6ah.c{KTs7BSxm{g>ZDvWt9s&>ueB4D%&tlF^s
 $table_prefix = 'wp_';
 
 
-define( 'WP_DEBUG', true );
+
 
 /* That's all, stop editing! Happy publishing. */
 

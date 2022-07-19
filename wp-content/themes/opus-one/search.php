@@ -88,7 +88,7 @@ foreach ($swp_query->posts as $show)
                 </button>
             </div>
 
-            <div class="mobile-page-nav"></div>
+            <!--<div class="mobile-page-nav"></div>-->
         </div>
 
         <?php
@@ -108,7 +108,7 @@ foreach ($swp_query->posts as $show)
             id="<?= $month ?>-<?= $year_to_show ?>">
             <h3 class="event-month__title">
                 <!-- @TODO : JS pour adpater le responsive (?) -->
-                <span class="event-month__word event-month__word--mobile">Jan<br>vier</span><!--MOBILE-->
+                <span class="event-month__word event-month__word--mobile"><?php echo $month; ?></span><!--MOBILE-->
                 <!-- @TODO : END -->
                 <span class="event-month__word event-month__word--desktop"><!-- DESKTOP -->
                         <?php
@@ -140,7 +140,7 @@ foreach ($swp_query->posts as $show)
             id="<?= $month ?>-<?= $year_to_show ?>">
             <h3 class="event-month__title">
                 <!-- @TODO : JS pour adpater le responsive (?) -->
-                <span class="event-month__word event-month__word--mobile">Jan<br>vier</span><!--MOBILE-->
+                <span class="event-month__word event-month__word--mobile"><?php echo $month; ?></span><!--MOBILE-->
                 <!-- @TODO : END -->
                 <span class="event-month__word event-month__word--desktop"><!-- DESKTOP -->
                                 <?php
@@ -226,7 +226,7 @@ foreach ($swp_query->posts as $show)
                                         <span class="event__hashtag event__hashtag--mobile">
                                                     <?php
                                                     foreach ($terms as $term) {
-                                                        echo '#' . $term->name;
+                                                        echo '<span>#' . $term->name . '</span>';
                                                     }
                                                     ?>
                                                 </span> <!-- categorie de l event -->
@@ -252,7 +252,7 @@ foreach ($swp_query->posts as $show)
                                             $location_href = $new_location_href;
                                         } ?>
                                         <span>
-                                                    <?php if (!empty($location_href) && is_string($location_href)){ ?>
+                                                    <?php if (!empty($location_href) && is_string($location_href) && $location_type != 'oui'){ ?>
                                                         <a href="<?php if (!empty($location_href)) {
                                                             echo $location_href;
                                                         } ?>" <?php if ($location_type != "oui") {
@@ -260,7 +260,7 @@ foreach ($swp_query->posts as $show)
                                                         } ?>>
                                                     <?php }
                                                     echo $location_name;
-                                                    if (!empty($location_href) && is_string($location_href)){ ?>
+                                                    if (!empty($location_href) && is_string($location_href) && $location_type != 'oui'){ ?>
                                                         </a>
                                                     <?php } ?>
                                                 </span>
@@ -289,7 +289,7 @@ foreach ($swp_query->posts as $show)
                                 <span class="event__hashtag event__hashtag--desktop">
                                              <?php
                                              foreach ($terms as $term) {
-                                                 echo '#' . $term->name . ' ';
+                                                echo '<span>#' . $term->name . '</span>';
                                              }
                                              ?>
                                         </span>
@@ -386,7 +386,7 @@ foreach ($swp_query->posts as $show)
                                             <span class="event__hashtag event__hashtag--mobile">
                                                     <?php
                                                     foreach ($terms as $term) {
-                                                        echo '#' . $term->name;
+                                                        echo '<span>#' . $term->name . '</span>';
                                                     }
                                                     ?>
                                                 </span> <!-- categorie de l event -->
@@ -412,7 +412,7 @@ foreach ($swp_query->posts as $show)
                                                 $location_href = $new_location_href;
                                             } ?>
                                             <span>
-                                                    <?php if (!empty($location_href) && is_string($location_href)){ ?>
+                                                    <?php if (!empty($location_href) && is_string($location_href) && $location_type != 'oui'){ ?>
                                                         <a href="<?php if (!empty($location_href)) {
                                                             echo $location_href;
                                                         } ?>" <?php if ($location_type != "oui") {
@@ -420,7 +420,7 @@ foreach ($swp_query->posts as $show)
                                                         } ?>>
                                                     <?php }
                                                     echo $location_name;
-                                                    if (!empty($location_href) && is_string($location_href)){ ?>
+                                                    if (!empty($location_href) && is_string($location_href) && $location_type != 'oui'){ ?>
                                                         </a>
                                                     <?php } ?>
                                                 </span>
@@ -429,7 +429,7 @@ foreach ($swp_query->posts as $show)
                                     <span class="event__hashtag event__hashtag--desktop">
                                              <?php
                                              foreach ($terms as $term) {
-                                                 echo '#' . $term->name . ' ';
+                                                echo '<span>#' . $term->name . '</span>';
                                              }
                                              ?>
                                         </span>

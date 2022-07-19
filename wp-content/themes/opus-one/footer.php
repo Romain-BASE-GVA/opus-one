@@ -31,7 +31,7 @@
         <div class="footer__bottom">
             <div class="logo logo--footer">
                 <img src="https://c.tenor.com/tlceri6zsQMAAAAC/concert.gif" class="logo--footer__img" alt="">
-                <a href="index.html" title="OPUS ONE">
+                <a href="<?php echo get_home_url(); ?>" title="OPUS ONE">
                     <span class="logo__letter">O</span>
                     <span class="logo__letter">P</span>
                     <span class="logo__letter">U</span>
@@ -65,7 +65,8 @@
     <div class="page-transition__line"></div>
 </div>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/main.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.matchHeight-min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/ajax.js"></script>
 
 </body>
-
 </html>

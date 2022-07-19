@@ -7,7 +7,7 @@
     <div data-barba="container" data-barba-namespace="artists" data-bg="<?php echo $colorBackground; ?>" data-text-color="<?php echo $colorText; ?>" data-logo-title="<?php the_title(); ?>">
       <main class="main main--top-padding">
         <section class="section section--artist-list section--no-padding-x" style="--current-bg-color: transparent">
-          <h3 class="section__title">We represent the following artists:</h3>
+          <h3 class="section__title">Nous les choisissons parce qu’ils nous plaisent à nous, mais aussi et surtout parce que nous sommes persuadés qu’ils-elles vous plairont à vous <span>contact Antoine Grenon Responsable Booking <a href="mailto:antoine.grenon@opus-one.ch" title="contact Antoine Grenon Responsable Booking">antoine.grenon@opus-one.ch</a></span></h3>
           <?php
           $terms = get_terms(
             array(
@@ -39,7 +39,10 @@
                       </div>
                       <div class="event__bottom">
                         <h3 class="event__title">
+                          <!--
                           <a href="<?= get_term_link($term, 'taxonomy-artistes'); ?>" title="<?php echo $term->name ?>"><?php echo $term->name; ?></a>
+                          -->
+                          <span><?php echo $term->name; ?></span>
                         </h3>
                       </div>
                     </div>
@@ -60,6 +63,7 @@
             <img src="" alt="">
           </div>
         </div>
+        <!--
         <section class="section section--artist-grid section--no-padding-x" style="--section-bg-color: transparent">
           <h3 class="section__title">We book and/or promote the following artists:</h3>
           <?php
@@ -100,6 +104,7 @@
           </div>
           <?php endif; ?>
         </section>
+          -->
       </main>
     </div>
 <?php endwhile;
