@@ -97,7 +97,7 @@ $(document).ready(function () {
 
     preventSamePageReload();
     init();
-    ajaxEvents();
+    //ajaxEvents();
 
     barba.init({
         timeout: 10000,
